@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_Beauties_Shop"
         mc:Ignorable="d"
-        Title=" 'Beauties' Shop" Height="550" Width="900" Icon="./Resources/beauty_logo.png">
+        Title=" 'Beauties' Shop" Height="600" Width="1000" Icon="./Resources/beauty_logo.png">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -14,11 +14,31 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#FFE45F78" Opacity=".7"></Grid>
+        <TextBlock Grid.Row="0" TextWrapping="Wrap" FontSize="25" HorizontalAlignment="Left"  Margin="100 20" FontFamily="Tahoma" Foreground="White"  >
+            <Italic >"Красавицы"</Italic>
+        </TextBlock>
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Поиск товара: " Foreground="White" FontSize="17" FontFamily="Tahoma" VerticalContentAlignment="Bottom" ></Label>
+            <TextBox x:Name="srchTxtbx" Style="{StaticResource mainTxt}"></TextBox>
+        </WrapPanel>
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">
             <Button x:Name="BackBtn" Style="{StaticResource mainBtn}" Content="Назад" Margin="10"  Click="BackBtn_Click" BorderBrush="#FFE23F3F"></Button>
         </WrapPanel>
         <Image Source="./Resources/beauty_logo.png" HorizontalAlignment="Left" ></Image>
         <Frame Grid.Row="1" Name="frmMain" NavigationUIVisibility="Hidden" ContentRendered="frmMain_ContentRendered"></Frame>
         <Grid Grid.Row="2" Background="#FFE45F78" Opacity=".7"></Grid>
+        <ListView x:Name="ProductList" Grid.Row="1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                        
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+                
+            </ListView.ItemsPanel>
+            <DataTemplate>
+                <Border Style="{StaticResource itemTemplate}"></Border>
+            </DataTemplate>
+        </ListView>
     </Grid>
 </Window>
