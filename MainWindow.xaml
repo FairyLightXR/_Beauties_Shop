@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_Beauties_Shop"
         mc:Ignorable="d"
-        Title=" 'Beauties' Shop" Height="600" Width="1000" Icon="./Resources/beauty_logo.png">
+        Title=" &quot;Beauties&quot; Shop" Height="600" Width="1000" Icon="./Resources/beauty_logo.png">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Поиск товара: " Foreground="White" FontSize="17" FontFamily="Tahoma" VerticalContentAlignment="Bottom" ></Label>
             <TextBox x:Name="srchTxtbx" Style="{StaticResource mainTxt}" TextChanged="srchTxtbx_TextChanged" ></TextBox>
-            <CheckBox x:Name="IsactualChkbx" Content="Только актуальные" Margin="5" Checked="IsactualChkbx_Checked" Unchecked="IsactualChkbx_Unchecked" ></CheckBox>
+            <CheckBox x:Name="IsactualChkbx" Content="Только активные" Margin="5" Checked="IsactualChkbx_Checked" Unchecked="IsactualChkbx_Unchecked" ></CheckBox>
         </WrapPanel>
         
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">

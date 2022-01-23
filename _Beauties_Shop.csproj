@@ -78,7 +78,6 @@
     <Compile Include="AppData\ClientService.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\connectDb.cs" />
     <Compile Include="AppData\DocumentByService.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
