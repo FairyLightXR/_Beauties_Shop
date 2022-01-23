@@ -30,6 +30,11 @@ namespace _Beauties_Shop.AppData
         public string Description { get; set; }
         public string MainImagePath { get; set; }
         public Nullable<int> ManufacturerID { get; set; }
+
+        public string IsActiveState
+        {
+            get { return this.IsActive ? "Активен" : "Не активен"; }
+        }
     
         public virtual Manufacturer Manufacturer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

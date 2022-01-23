@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="Border">
-            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="CornerRadius" Value="0"/>
         </Style>
         <Style TargetType="Border" x:Key="itemTemplate">
             <Setter Property="CornerRadius" Value="5"/>
@@ -28,6 +28,7 @@
             <Setter Property="FontFamily" Value="Tahoma"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="17"/>
+            
         </Style>
 
         <Style TargetType="TextBox" x:Key="mainTxt">

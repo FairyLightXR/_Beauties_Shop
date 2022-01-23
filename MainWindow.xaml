@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_Beauties_Shop"
         mc:Ignorable="d"
         Title=" 'Beauties' Shop" Height="600" Width="1000" Icon="./Resources/beauty_logo.png">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75" />
@@ -19,26 +19,52 @@
         </TextBlock>
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Поиск товара: " Foreground="White" FontSize="17" FontFamily="Tahoma" VerticalContentAlignment="Bottom" ></Label>
-            <TextBox x:Name="srchTxtbx" Style="{StaticResource mainTxt}"></TextBox>
+            <TextBox x:Name="srchTxtbx" Style="{StaticResource mainTxt}" TextChanged="srchTxtbx_TextChanged" ></TextBox>
+            <CheckBox x:Name="IsactualChkbx" Content="Только актуальные" Margin="5" Checked="IsactualChkbx_Checked" Unchecked="IsactualChkbx_Unchecked" ></CheckBox>
         </WrapPanel>
+        
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">
             <Button x:Name="BackBtn" Style="{StaticResource mainBtn}" Content="Назад" Margin="10"  Click="BackBtn_Click" BorderBrush="#FFE23F3F"></Button>
         </WrapPanel>
         <Image Source="./Resources/beauty_logo.png" HorizontalAlignment="Left" ></Image>
         <Frame Grid.Row="1" Name="frmMain" NavigationUIVisibility="Hidden" ContentRendered="frmMain_ContentRendered"></Frame>
         <Grid Grid.Row="2" Background="#FFE45F78" Opacity=".7"></Grid>
-        <ListView x:Name="ProductList" Grid.Row="1">
+        <ListView x:Name="ProductList" Grid.Row="1" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel>
-                        
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    
                     </WrapPanel>
                 </ItemsPanelTemplate>
-                
+
             </ListView.ItemsPanel>
-            <DataTemplate>
-                <Border Style="{StaticResource itemTemplate}"></Border>
-            </DataTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource itemTemplate}">
+                        <Grid Width="300" Height="400">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="90"></RowDefinition>
+                                <RowDefinition Height="250"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Width="250" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="5">
+                                <Image.Source>
+                                    <Binding Path="MainImagePhoto">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>Resources/beauty_logo.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Style="{StaticResource mainTxtb}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Title}" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Style="{StaticResource mainTxtb}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Cost, StringFormat={}{0:.0} рублей}"></TextBlock>
+
+                            <TextBlock Style="{StaticResource mainTxtb}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding IsActiveState}"></TextBlock>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Window>
