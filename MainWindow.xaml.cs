@@ -25,7 +25,7 @@ namespace _Beauties_Shop
         public MainWindow()
         {
             InitializeComponent();
-            connectDb.DBEntities = new BeautyShopDBEntities();
+            
             UpdateProducts();
         }
 
