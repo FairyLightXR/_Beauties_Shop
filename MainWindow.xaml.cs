@@ -1,6 +1,8 @@
 ﻿using _Beauties_Shop.AppData;
+using _Beauties_Shop.Pages;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +23,12 @@ namespace _Beauties_Shop
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BeautyShopDBEntities _beautyShopDBEntities = new BeautyShopDBEntities();
+        
         public MainWindow()
         {
             InitializeComponent();
-            
-            UpdateProducts();
+            frmMain.Navigate(new ProductList());
+            FrameNavigator.MainFrame = frmMain;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -49,30 +51,6 @@ namespace _Beauties_Shop
 
         }
 
-        private void UpdateProducts()
-        {
-            var currProducts = _beautyShopDBEntities.Product.OrderBy(product=>product.Title).ToList();
-            currProducts = currProducts.Where(product => product.Title.ToLower().Contains(srchTxtbx.Text.ToLower())).ToList();
-            if (IsactualChkbx.IsChecked.Value)
-            {
-                currProducts = currProducts.Where(product => product.IsActive).ToList();
-            }
-            ProductList.ItemsSource = currProducts;
-        }
-
-        private void IsactualChkbx_Checked(object sender, RoutedEventArgs e)
-        {
-            UpdateProducts();
-        }
-
-        private void srchTxtbx_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateProducts();
-        }
-
-        private void IsactualChkbx_Unchecked(object sender, RoutedEventArgs e)
-        {
-            UpdateProducts();
-        }
+       
     }
 }

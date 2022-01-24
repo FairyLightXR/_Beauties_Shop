@@ -31,6 +31,7 @@ namespace _Beauties_Shop.AppData
         public string MainImagePath { get; set; }
         public Nullable<int> ManufacturerID { get; set; }
 
+
         public string IsActiveState
         {
             get { return this.IsActive ? "Активен" : "Не активен"; }
